@@ -1,0 +1,16 @@
+# 临时目录 / 浏览器 profile
+.tmp/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
+
+# 依赖（本项目无运行时依赖，防误提交）
+node_modules/
+
+# 构建/调试残留
+*.log

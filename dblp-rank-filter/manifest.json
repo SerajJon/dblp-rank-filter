@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "DBLP 等级筛选器",
+  "version": "1.0.0",
+  "description": "在 DBLP 搜索结果中标注 CCF A/B/C 类会议期刊与中科院分区，并支持一键筛选（含全量筛选、不限分页）。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://dblp.org/*", "https://dblp.uni-trier.de/*"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://dblp.org/search*",
+        "https://dblp.uni-trier.de/search*"
+      ],
+      "js": ["src/rank-engine.js", "src/content.js"],
+      "css": ["src/panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/data/ranks.json"],
+      "matches": ["https://dblp.org/*", "https://dblp.uni-trier.de/*"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DBLP 等级筛选器",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
